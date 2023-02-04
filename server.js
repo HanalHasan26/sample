@@ -17,5 +17,11 @@ app.get("/",(req,res)=>{
     res.json("api running")
 })
 
+const PORT = process.env.PORT || 5000
 
-app.listen(5000,()=> console.log("Server Is Running..."))   
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("listening for requests");
+    })
+})
+// app.listen(5000,()=> console.log("Server Is Running..."))   
